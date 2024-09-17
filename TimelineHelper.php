@@ -78,8 +78,12 @@ class TimelineHelper {
                 $content = $content . '<div class=timeline_date>' . $fact->date()->display($tree, null, true) . '</div>';
                 $content = $content . '<div class=timeline_place>' . $place . '</div>';
                 $content = '<div class=timeline_content_column>' . $content . '</div>';
-                
-                $timeline = $timeline . $this->getTimelineRow($fact, $tag, $year, $age, $content, $image, $image_href);
+
+                if (!$module->getPreference('displayreverse')) {
+                    $timeline = $timeline . $this->getTimelineRow($fact, $tag, $year, $age, $content, $image, $image_href);
+                } else {
+                    $timeline = $this->getTimelineRow($fact, $tag, $year, $age, $content, $image, $image_href) . $timeline;
+                }
             }
         }
 
