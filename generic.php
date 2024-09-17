@@ -54,6 +54,7 @@ class TimelineTabModule extends AbstractModule implements ModuleTabInterface, Mo
             'associatefacts' => $this->getPreference('associatefacts', '1'),
             'relativefacts' => $this->getPreference('relativefacts', '1'),
             'historicfacts' => $this->getPreference('historicfacts', '0'),
+            'displayreverse' => $this->getPreference('displayreverse', '0'),
 
             'title'        => $this->title()
         ]);
@@ -71,6 +72,7 @@ class TimelineTabModule extends AbstractModule implements ModuleTabInterface, Mo
             $this->setPreference('associatefacts', $params['associatefacts'] ?? '0');
             $this->setPreference('relativefacts', $params['relativefacts'] ?? '0');
             $this->setPreference('historicfacts', $params['historicfacts'] ?? '0');
+            $this->setPreference('displayreverse', $params['displayreverse'] ?? '0');
 
             $message = I18N::translate('The preferences for the module “%s” have been updated.', $this->title());
             FlashMessages::addMessage($message, 'success');

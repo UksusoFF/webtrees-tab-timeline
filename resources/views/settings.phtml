@@ -24,7 +24,10 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         <?= view('components/checkbox-inline', ['id' => 'associatefacts', 'label' => I18N::translate('Associate Facts'), 'name' => 'associatefacts', 'checked' => (int)$associatefacts]) ?>
         <?= view('components/checkbox-inline', ['id' => 'relativefacts', 'label' => I18N::translate('Relative Facts'), 'name' => 'relativefacts', 'checked' => (int)$relativefacts]) ?>
         <?= view('components/checkbox-inline', ['id' => 'historicfacts', 'label' => I18N::translate('Historic Facts'), 'name' => 'historicfacts', 'checked' => (int)$historicfacts]) ?>
-        
+
+        <h5><?= I18N::translate('Display options') . ':' ?></h5>
+        <?= view('components/checkbox-inline', ['id' => 'displayreverse', 'label' => I18N::translate('Reverse sorting'), 'name' => 'displayreverse', 'checked' => (int)$displayreverse]) ?>
+
         <!-- SAVE BUTTON -->
         <hr/>
         <button type="submit" class="btn btn-primary">
