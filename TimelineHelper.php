@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace JesseWebDotCom\Webtrees\Module\TimelineTab;
 
+use Fisharebest\Webtrees\Family;
+use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Services\IndividualFactsService;
 use Fisharebest\Webtrees\Services\LinkedRecordService;
 use Fisharebest\Webtrees\Services\ModuleService;
@@ -43,7 +45,9 @@ class TimelineHelper {
 
                 if ($parent !== $individual) {
                     if ($parent instanceof Family) {
-                        foreach ($parent->spouses()->filter(static fn ($individual): bool => $individual !== $record) as $spouse) {
+                        foreach ($parent->spouses()->filter(static function ($spouse) use ($individual): bool {
+                            return $individual !== $spouse;
+                        }) as $spouse) {
                             $value = $this->getProfileLink($spouse);
                             $image = $this->getImageWithFallback($spouse, $factsHelper);
                         }                        
