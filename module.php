@@ -8,8 +8,4 @@ use JesseWebDotCom\Webtrees\Module\TimelineTab\TimelineTabModule;
 
 require __DIR__ . '/generic.php';
 
-return app(TimelineTabModule::class);
-
-
-
-
+return new TimelineTabModule();
