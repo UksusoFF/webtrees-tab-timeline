@@ -2,7 +2,7 @@
 # Timeline
 This custom webtrees module adds tab for each individual displaying a timeline view similar to Ancestry or FamilySearch.
 
-Compatibility: Webtrees 2.1.16
+Compatibility: Webtrees 2.2
 
 ## Features
 
